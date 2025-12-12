@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 | Your Name</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="#home">Project Manager</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="메뉴 열기">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    안녕하세요,<br>
+                    <span class="gradient-text">프로젝트 매니저 김민</span>입니다
+                </h1>
+                <p class="hero-description">
+                    성공적인 프로젝트 완수를 위해 팀을 이끌어갑니다.<br>
+                    전략적 계획과 효율적인 리소스 관리로 목표를 달성합니다.
+                </p>
+                <a href="#contact" class="cta-button">연락하기</a>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 프로젝트 차트/그래프 아이콘 -->
+                        <rect x="80" y="200" width="60" height="120" fill="url(#gradient)" opacity="0.8" rx="5"/>
+                        <rect x="160" y="150" width="60" height="170" fill="url(#gradient)" opacity="0.8" rx="5"/>
+                        <rect x="240" y="180" width="60" height="140" fill="url(#gradient)" opacity="0.8" rx="5"/>
+                        <rect x="320" y="120" width="60" height="200" fill="url(#gradient)" opacity="0.8" rx="5"/>
+                        <!-- 연결선 -->
+                        <line x1="110" y1="200" x2="190" y2="150" stroke="url(#gradient)" stroke-width="3" opacity="0.6"/>
+                        <line x1="190" y1="150" x2="270" y2="180" stroke="url(#gradient)" stroke-width="3" opacity="0.6"/>
+                        <line x1="270" y1="180" x2="350" y2="120" stroke="url(#gradient)" stroke-width="3" opacity="0.6"/>
+                        <!-- 상단 아이콘 (체크마크) -->
+                        <circle cx="200" cy="80" r="40" fill="url(#gradient)" opacity="0.3"/>
+                        <path d="M 185 80 L 195 90 L 215 70" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- 프로젝트 섹션 -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">프로젝트</h2>
+            <p class="section-subtitle">최근 작업한 프로젝트들을 소개합니다</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-image-placeholder project-1"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">디지털 전환 프로젝트</h3>
+                        <p class="project-description">
+                            기업의 디지털 전환을 주도한 대규모 프로젝트입니다. 
+                            일정 관리, 리스크 관리, 이해관계자 커뮤니케이션을 성공적으로 수행했습니다.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">프로젝트 관리</span>
+                            <span class="tag">일정 관리</span>
+                            <span class="tag">팀 리더십</span>
+                        </div>
+                        <a href="#" class="project-link">자세히 보기 →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-image-placeholder project-2"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">애자일 스프린트 관리</h3>
+                        <p class="project-description">
+                            애자일 방법론을 적용한 소프트웨어 개발 프로젝트입니다. 
+                            스프린트 계획, 일일 스탠드업, 회고를 통해 팀 생산성을 향상시켰습니다.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">애자일</span>
+                            <span class="tag">스크럼</span>
+                            <span class="tag">협업</span>
+                        </div>
+                        <a href="#" class="project-link">자세히 보기 →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-image-placeholder project-3"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">크로스 펑셔널 팀 리딩</h3>
+                        <p class="project-description">
+                            다양한 부서의 팀원들을 하나로 모아 프로젝트를 완수했습니다. 
+                            효과적인 커뮤니케이션과 리소스 최적화로 목표를 달성했습니다.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">팀 빌딩</span>
+                            <span class="tag">커뮤니케이션</span>
+                            <span class="tag">리소스 관리</span>
+                        </div>
+                        <a href="#" class="project-link">자세히 보기 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact 섹션 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">연락하기</h2>
+            <p class="section-subtitle">프로젝트나 협업에 관심이 있으시다면 연락주세요</p>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>연락처 정보</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>이메일</h4>
+                            <p>your.email@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>전화번호</h4>
+                            <p>010-0000-0000</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/yourusername</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">메시지</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">메시지 보내기</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -22,8 +22,12 @@
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">보유 역량</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                <button class="admin-toggle" id="adminToggle" title="관리자 로그인">
+                    <span id="adminToggleText">🔐</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -34,7 +38,7 @@
             <div class="hero-text">
                 <h1 class="hero-title">
                     안녕하세요,<br>
-                    <span class="gradient-text">프로젝트 매니저 김민</span>입니다
+                    <span class="gradient-text">프로젝트 매니저</span> <span class="pm-name">김민</span>입니다
                 </h1>
                 <p class="hero-description">
                     성공적인 프로젝트 완수를 위해 팀을 이끌어갑니다.<br>
@@ -75,65 +79,107 @@
     <!-- 프로젝트 섹션 -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">프로젝트</h2>
-            <p class="section-subtitle">최근 작업한 프로젝트들을 소개합니다</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-image-placeholder project-1"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">디지털 전환 프로젝트</h3>
-                        <p class="project-description">
-                            기업의 디지털 전환을 주도한 대규모 프로젝트입니다. 
-                            일정 관리, 리스크 관리, 이해관계자 커뮤니케이션을 성공적으로 수행했습니다.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">프로젝트 관리</span>
-                            <span class="tag">일정 관리</span>
-                            <span class="tag">팀 리더십</span>
+            <div class="section-header">
+                <h2 class="section-title">프로젝트</h2>
+                <p class="section-subtitle">최근 작업한 프로젝트들을 소개합니다</p>
+                <button class="add-btn admin-only" id="addProjectBtn" style="display: none;">+ 프로젝트 추가</button>
+            </div>
+            <!-- 프로젝트 입력 폼 -->
+            <div class="inline-form admin-only" id="projectForm" style="display: none;">
+                <h3 class="form-title">프로젝트 추가/수정</h3>
+                <form id="projectInlineForm">
+                    <input type="hidden" id="projectFormId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="projectFormTitle">제목</label>
+                            <input type="text" id="projectFormTitle" required>
                         </div>
-                        <a href="#" class="project-link">자세히 보기 →</a>
+                        <div class="form-group">
+                            <label for="projectFormPriority">우선순위</label>
+                            <input type="number" id="projectFormPriority" value="0" min="0" required>
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="projectFormDescription">설명</label>
+                        <textarea id="projectFormDescription" rows="4" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="projectFormTags">태그 (쉼표로 구분)</label>
+                            <input type="text" id="projectFormTags" placeholder="예: 프로젝트 관리, 일정 관리">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectFormColor">색상</label>
+                            <select id="projectFormColor">
+                                <option value="1">파란색</option>
+                                <option value="2">하늘색</option>
+                                <option value="3">진한 파란색</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectFormImage">이미지 업로드</label>
+                        <input type="file" id="projectFormImage" accept="image/*">
+                        <div class="image-preview" id="projectImagePreview"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-button">저장</button>
+                        <button type="button" class="cancel-button" id="cancelProjectForm">취소</button>
+                        <button type="button" class="delete-button" id="deleteProjectForm" style="display: none;">삭제</button>
+                    </div>
+                </form>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- 프로젝트 카드들이 여기에 동적으로 추가됩니다 -->
+            </div>
+        </div>
+    </section>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-image-placeholder project-2"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">애자일 스프린트 관리</h3>
-                        <p class="project-description">
-                            애자일 방법론을 적용한 소프트웨어 개발 프로젝트입니다. 
-                            스프린트 계획, 일일 스탠드업, 회고를 통해 팀 생산성을 향상시켰습니다.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">애자일</span>
-                            <span class="tag">스크럼</span>
-                            <span class="tag">협업</span>
+    <!-- 보유 역량 섹션 -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">보유 역량</h2>
+                <p class="section-subtitle">프로젝트 관리와 팀 리딩에 필요한 핵심 역량들입니다</p>
+                <button class="add-btn admin-only" id="addSkillBtn" style="display: none;">+ 역량 추가</button>
+            </div>
+            <!-- 역량 입력 폼 -->
+            <div class="inline-form admin-only" id="skillForm" style="display: none;">
+                <h3 class="form-title">역량 추가/수정</h3>
+                <form id="skillInlineForm">
+                    <input type="hidden" id="skillFormId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="skillFormTitle">제목</label>
+                            <input type="text" id="skillFormTitle" required>
                         </div>
-                        <a href="#" class="project-link">자세히 보기 →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-image-placeholder project-3"></div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">크로스 펑셔널 팀 리딩</h3>
-                        <p class="project-description">
-                            다양한 부서의 팀원들을 하나로 모아 프로젝트를 완수했습니다. 
-                            효과적인 커뮤니케이션과 리소스 최적화로 목표를 달성했습니다.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">팀 빌딩</span>
-                            <span class="tag">커뮤니케이션</span>
-                            <span class="tag">리소스 관리</span>
+                        <div class="form-group">
+                            <label for="skillFormPriority">우선순위</label>
+                            <input type="number" id="skillFormPriority" value="0" min="0" required>
                         </div>
-                        <a href="#" class="project-link">자세히 보기 →</a>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="skillFormDescription">설명</label>
+                        <textarea id="skillFormDescription" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="skillFormTags">태그 (쉼표로 구분)</label>
+                        <input type="text" id="skillFormTags" placeholder="예: 프로젝트 관리, 일정 관리">
+                    </div>
+                    <div class="form-group">
+                        <label for="skillFormImage">이미지 업로드</label>
+                        <input type="file" id="skillFormImage" accept="image/*">
+                        <div class="image-preview" id="skillImagePreview"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-button">저장</button>
+                        <button type="button" class="cancel-button" id="cancelSkillForm">취소</button>
+                        <button type="button" class="delete-button" id="deleteSkillForm" style="display: none;">삭제</button>
+                    </div>
+                </form>
+            </div>
+            <div class="skills-grid" id="skillsGrid">
+                <!-- 역량 카드들이 여기에 동적으로 추가됩니다 -->
             </div>
         </div>
     </section>
@@ -186,6 +232,82 @@
             </div>
         </div>
     </section>
+
+    <!-- 로그인 모달 -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>관리자 로그인</h3>
+                <button class="modal-close" id="closeLoginModal">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">사용자명</label>
+                    <input type="text" id="username" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" required autocomplete="current-password">
+                </div>
+                <div class="form-group" id="loginError" style="display: none; color: #ef4444; font-size: 0.9rem; margin-top: -1rem;">
+                    사용자명 또는 비밀번호가 올바르지 않습니다.
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="submit-button">로그인</button>
+                    <button type="button" class="cancel-button" id="cancelLoginBtn">취소</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 관리자 모달 -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">항목 추가</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <form id="adminForm">
+                <input type="hidden" id="itemId">
+                <input type="hidden" id="itemType">
+                
+                <div class="form-group">
+                    <label for="itemTitle">제목</label>
+                    <input type="text" id="itemTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="itemDescription">설명</label>
+                    <textarea id="itemDescription" rows="4" required></textarea>
+                </div>
+                
+                <div class="form-group" id="tagsGroup">
+                    <label for="itemTags">태그 (쉼표로 구분)</label>
+                    <input type="text" id="itemTags" placeholder="예: 프로젝트 관리, 일정 관리">
+                </div>
+                
+                <div class="form-group">
+                    <label for="itemPriority">우선순위 (숫자가 클수록 먼저 표시)</label>
+                    <input type="number" id="itemPriority" value="0" min="0" required>
+                </div>
+                
+                <div class="form-group" id="colorGroup">
+                    <label for="itemColor">색상 (프로젝트만)</label>
+                    <select id="itemColor">
+                        <option value="1">파란색</option>
+                        <option value="2">하늘색</option>
+                        <option value="3">진한 파란색</option>
+                    </select>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="submit" class="submit-button">저장</button>
+                    <button type="button" class="cancel-button" id="cancelBtn">취소</button>
+                    <button type="button" class="delete-button" id="deleteBtn" style="display: none;">삭제</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- 푸터 -->
     <footer class="footer">
